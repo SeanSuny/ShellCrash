@@ -1,0 +1,39 @@
+name: Build Image   # workflow名称，可以在Github项目主页的【Actions】中看到所有的workflow
+on:   # 配置触发workflow的事件
+  workflow_dispatch: {}   # 开启手动触发工作流
+  push:
+    paths-ignore:   # 排除路径
+      - '.github/**'
+      - '**.md'
+    branches:   # main分支有push时触发此workflow
+      - 'main'
+    tags:       # tag更新时触发此workflow
+      - '*'
+jobs:  # workflow中的job
+  build:   # job的名字
+    runs-on: ubuntu-latest   # job运行的基础环境
+    name: Publish ShellCrash Package job
+    if: startsWith(github.repository, 'SeanSuny/ShellCrash') # 仓库名
+    
+    steps:  # 一个job由一个或多个step组成
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}   # DockerHub 的用户名
+          password: ${{ secrets.DOCKER_TOKEN }}   # DockerHub 的Token
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4   # 执行docker镜像生成并推送到DockerHub
+        if: startsWith(github.repository, 'SeanSuny/ShellCrash')
+        with:
+          context: .
+          file: ./Dockerfile   # Dockerfile文件的名称
+          platforms: linux/amd64,linux/arm64   # Docker准备构建的镜像平台
+          push: true
+          tags: seansuny/shellcrash:latest   # Docker镜像标签
