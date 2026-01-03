@@ -18,35 +18,7 @@ RUN apk add --no-cache curl tzdata nftables \
     && cp /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo ${TZ} > /etc/timezone && apk del tzdata \
     # 安装ShellCrash
-    && (echo "1"; sleep 2; echo "1"; sleep 3; echo "1"; sleep 2; echo "1") | sh -c "$(curl -kfsSl $url_install)"  \
-    # 配置ShellCrash
-    && source /etc/profile &> /dev/null \
-    && (echo "2"; sleep 2; \
-        echo "1"; sleep 3; \
-        echo "1"; sleep 2; \
-        echo "1"; sleep 2; \
-        echo "https://raw.githubusercontent.com/SeanSuny/ShellCrash/main/config.yaml"; sleep 2; \
-        echo "1"; sleep 5; \
-        echo "0"; sleep 2; \
-        echo "0"; sleep 2; \
-        echo "9"; sleep 2; \
-        echo "2"; sleep 2; \
-        echo "1"; sleep 5; \
-        echo "4"; sleep 2; \
-        echo "3"; sleep 5; \
-        echo "0"; sleep 2; \
-        echo "2"; sleep 2; \
-        echo "1"; sleep 2; \
-        echo "1"; sleep 2; \
-        echo "7"; sleep 2; \
-        echo "1"; sleep 2; \
-        echo "0"; sleep 2; \
-        echo "2"; sleep 2; \
-        echo "1"; sleep 2; \
-        echo "0"; sleep 2; \
-        echo "0"; sleep 2) | /etc/ShellCrash/menu.sh \
-        && mv /etc/ShellCrash /etc/ShellCrash_bak && mkdir /etc/ShellCrash \
-        && rm -rf /root/install.sh
+    && (echo "1"; sleep 2; echo "1"; sleep 3; echo "1"; sleep 2; echo "1") | sh -c "$(curl -kfsSl $url_install)"
 
 # 端口和目录映射
 EXPOSE 7890 9999
