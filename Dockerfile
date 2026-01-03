@@ -51,6 +51,7 @@ RUN apk add --no-cache curl tzdata nftables \
 # 端口和目录映射
 EXPOSE 7890 9999
 VOLUME /etc/ShellCrash
+VOLUME /tmp/ShellCrash
 
 #启动命令
 ENTRYPOINT ["sh","crashrun.sh"]
