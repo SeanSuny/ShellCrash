@@ -17,6 +17,7 @@ COPY ./crash /root
 RUN apk add --no-cache curl tzdata nftables \
     && cp /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo ${TZ} > /etc/timezone && apk del tzdata \
+    && mkdir -p /usr/share/zoneinfo/Asia && cp /etc/localtime /usr/share/zoneinfo/Asia/Shanghai \
     # 安装ShellCrash
     && (echo "1"; sleep 2; echo "1"; sleep 3; echo "1"; sleep 2; echo "1") | sh -c "$(curl -kfsSl $url_install)"  \
     # 配置ShellCrash
