@@ -46,7 +46,6 @@ RUN apk add --no-cache curl tzdata nftables \
         echo "1"; sleep 2; \
         echo "0"; sleep 2; \
         echo "0"; sleep 2; \
-        echo "1"; sleep 5; \
         echo "0"; sleep 2) | /etc/ShellCrash/menu.sh \
         && cp -r /etc/ShellCrash /etc/ShellCrash_bak && rm -rf /root/install.sh
         
