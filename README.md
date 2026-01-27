@@ -8,7 +8,8 @@
 [![Docker version](https://img.shields.io/docker/v/seansuny/shellcrash?logo=docker&label=Version&color=green)](https://hub.docker.com/r/seansuny/shellcrash)
 [![Docker Pulls](https://img.shields.io/docker/pulls/seansuny/shellcrash?logo=docker&label=Pulls&color=blue)](https://hub.docker.com/r/seansuny/shellcrash)
 [![Docker stars](https://img.shields.io/docker/stars/seansuny/shellcrash?logo=docker&label=Stars&color=blue)](https://hub.docker.com/r/seansuny/shellcrash)
-[![Docker Image Size](https://img.shields.io/docker/image-size/seansuny/shellcrash?logo=docker&label=Size&color=orange)](https://hub.docker.com/r/SeanSuny/shellcrash)
+[![Docker Image Size](https://img.shields.io/docker/image-size/seansuny/shellcrash?logo=docker&label=amd64%20Size&arch=amd64&color=orange)](https://hub.docker.com/r/SeanSuny/shellcrash)
+[![Docker Image Size](https://img.shields.io/docker/image-size/seansuny/shellcrash?logo=docker&label=arm64%20Size&arch=arm64&color=orange)](https://hub.docker.com/r/SeanSuny/shellcrash)
 
 ## 功能简介
 
